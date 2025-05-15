@@ -1,0 +1,79 @@
+# === Python bytecode ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# === Poetry ===
+# Ignore Poetry virtual envs (if inside project folder)
+.venv/
+*.venv
+
+# Lockfile (optional)
+# poetry.lock
+
+# === Environment / Secrets ===
+.env
+.env.*
+*.env
+*.pem
+
+# === Project Secrets / Local Settings ===
+alembic.ini
+
+# === IDEs ===
+.vscode/
+.idea/
+*.iml
+
+# === OS Junk ===
+.DS_Store
+Thumbs.db
+
+# === Logs / Runtime files ===
+*.log
+logs/
+*.out
+*.err
+*.pid
+*.sock
+
+# === Caches ===
+.cache/
+.mypy_cache/
+.pytest_cache/
+.tox/
+coverage.xml
+.coverage
+htmlcov/
+*.pkl
+
+# === Build / Distribution ===
+dist/
+build/
+*.egg-info/
+
+# === Databases ===
+*.sqlite3
+*.db
+
+# === Docker ===
+docker-compose.override.yml
+*.tar
+*.gz
+*.tgz
+
+# === Editor swap / temp files ===
+*~
+*.swp
+*.swo
+
+# === Jupyter Notebooks ===
+.ipynb_checkpoints/
+
+# === Aiogram specific ===
+data/
+sessions/
+bot_sessions/
+state.json
