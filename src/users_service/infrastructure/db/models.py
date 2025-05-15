@@ -33,15 +33,15 @@ class User(Base):
     profile: Mapped["UserProfile"] = relationship("UserProfile", back_populates="user", uselist=False)
 
 
-class UserAuth(Base):
-    __tablename__ = "user_auth"
+# class UserAuth(Base):
+#     __tablename__ = "user_auth"
 
-    user_id: Mapped[id_] = mapped_column(ForeignKey("users.id"), primary_key=True)
-    username: Mapped[str]
-    password: Mapped[str]
-    privilage: Mapped[enums.UserPrivileges] = mapped_column(server_default=enums.UserPrivileges.USER.value)
+#     user_id: Mapped[id_] = mapped_column(ForeignKey("users.id"), primary_key=True)
+#     username: Mapped[str]
+#     password: Mapped[str]
+#     privilage: Mapped[enums.UserPrivileges] = mapped_column(server_default=enums.UserPrivileges.USER.value)
 
-    user: Mapped["User"] = relationship("User", back_populates="auth")
+#     user: Mapped["User"] = relationship("User", back_populates="auth")
 
 
 class UserProfile(Base):

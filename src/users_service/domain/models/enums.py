@@ -9,3 +9,4 @@ class UserLanguages(STREnum):
     EN = "EN"
     UZ = "UZ"
     RU = "RU"
+
