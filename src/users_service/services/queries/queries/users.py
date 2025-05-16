@@ -12,5 +12,5 @@ from ..dto import p, r
 async def create(param: p.users.CreateDTO, session: AsyncSession) -> r.users.CreateDTO:
     user = models.User()
     session.add(user)
-    await session.flush(user)
+    await session.flush([user])
     return r.users.CreateDTO.model_validate(user)

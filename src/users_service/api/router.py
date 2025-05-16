@@ -1,16 +1,19 @@
-from fastapi import APIRouter, status, HTTPException
+from fastapi import APIRouter, Depends
 
 from src.users_service.services import flows
-from src.users_service.services import queries
 from .dto import p, r
+
+from src.users_service.services.dependencies import db
 
 
 router = APIRouter()
 
 
 @router.post("/create")
-async def create(param: p.CreateDTO) -> r.CreateDTO:
-    created_user = await flows.create_user(
-        flows.p.CreateUserDTO(language=param.language))
+async def create(param: p.CreateDTO,
+                 session = Depends(db.session)) -> r.CreateDTO:
     
-    return r.CreateDTO.model_validate(created_user.model_dump())
+    created_user = await flows.create_user(
+        flows.p.CreateUserDTO(language=param.language), session)
+    
+    return r.CreateDTO.v(created_user)

@@ -9,7 +9,7 @@ from ..dto import p, r
 
 
 async def create(param: p.users_profile.CreateDTO, session: AsyncSession) -> r.users_profile.CreateDTO:
-    profile = models.UserProfile(**param.model_validate())
+    profile = models.UserProfile(**param.model_dump())
     session.add(profile)
     await session.flush([profile])
     return r.users_profile.CreateDTO.model_validate(profile)
